@@ -191,7 +191,7 @@ GO
    STEP 10: Execute the Bronze Load Procedure
    Execute the stored procedure to populate
    all Bronze tables with the latest data
-   from the source CSV files.
+   from the source CSV files. 
    ======================================= */
 
 EXEC bronze.load_bronze;
