@@ -128,3 +128,70 @@ CREATE TABLE bronze.transactions (
    category VARCHAR(50),
    severity VARCHAR(50)
    );
+
+/* ==========================================
+   STEP 9: Load Sample Data into the Bronze Layer
+
+   After creating the Bronze tables, we will
+   populate them with sample data representing
+   a UPI transaction ecosystem.
+
+   To streamline the data loading process, we
+   will create a stored procedure that:
+   - Clears existing data from each Bronze table.
+   - Loads fresh data from the corresponding
+     CSV files using BULK INSERT.
+
+   Note: All data used in this project is
+   fictional and intended solely for portfolio
+   and demonstration purposes. Any resemblance
+   to actual persons, organizations, bank
+   accounts, phone numbers, or other entities
+   is purely coincidental.
+========================================== */
+
+CREATE OR ALTER PROCEDURE bronze.load_bronze AS
+BEGIN
+    TRUNCATE TABLE bronze.users;
+    BULK INSERT bronze.users FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\users.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.locations;
+    BULK INSERT bronze.locations FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\locations.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.psp;
+    BULK INSERT bronze.psp FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\psp.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.bank_accounts;
+    BULK INSERT bronze.bank_accounts FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\bank_account.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.banks;
+    BULK INSERT bronze.banks FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\bank.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.failure_reasons;
+    BULK INSERT bronze.failure_reasons FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\failure_reason_id.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.merchants;
+    BULK INSERT bronze.merchants FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\merchants.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+    TRUNCATE TABLE bronze.transactions;
+    BULK INSERT bronze.transactions FROM 'C:\Users\Admin\OneDrive\Desktop\UPI Project\transactions.csv'
+        WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', TABLOCK);
+
+END;
+GO
+
+/* ==========================================
+   STEP 10: Execute the Bronze Load Procedure
+   Execute the stored procedure to populate
+   all Bronze tables with the latest data
+   from the source CSV files.
+   ======================================= */
+
+EXEC bronze.load_bronze;
