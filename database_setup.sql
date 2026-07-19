@@ -10,14 +10,13 @@
 
 
 /*=============================================================
-    STEP 1: Switch to master database
+    STEP 1: Switch to master database 
     Purpose:
     - master is the system database where we create new databases
 =============================================================*/
 
 USE master;
 GO
-
 
 /*=============================================================
     STEP 2: Create UPI Analytics Database
@@ -35,7 +34,6 @@ GO
 CREATE DATABASE upi_db;
 GO
 
-
 /*=============================================================
     STEP 3: Switch into the newly created database
     Purpose:
@@ -44,7 +42,6 @@ GO
 
 USE upi_db;
 GO
-
 
 /*=============================================================
     STEP 4: Create Bronze Layer Schema
@@ -56,7 +53,6 @@ GO
 
 CREATE SCHEMA bronze;
 GO
-
 
 /*=============================================================
     STEP 5: Create Silver Layer Schema
@@ -71,7 +67,6 @@ GO
 
 CREATE SCHEMA silver;
 GO
-
 
 /*=============================================================
     STEP 6: Create Gold Layer Schema
