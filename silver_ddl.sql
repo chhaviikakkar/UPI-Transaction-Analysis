@@ -42,7 +42,7 @@ FROM   bronze.users AS u
        ON u.location_id = l.location_id;
 
 /* ==========================================
-   STEP 3: Repeat for other tables
+   STEP 3: Repeat for other tables.
    ========================================= */
 
 CREATE TABLE silver.psp (
@@ -106,3 +106,22 @@ ON m.location_id=l.location_id
 
  -- ========================================= 
 
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   Note: Lookup tables (locations, banks,
+   bank_accounts, and failure_reasons) were 
+   not promoted to the silver layer because they
+   already contained clean, standardized 
+   reference data and required no transformations.
+   The Silver layer was created only for datasets  
+   that required data quality improvements, 
+   standardization, or business rule application
+ ========================================= */
