@@ -106,14 +106,56 @@ ON m.location_id=l.location_id
 
  -- ========================================= 
 
+CREATE TABLE silver.transactions (
+    transaction_id       VARCHAR (50)    PRIMARY KEY,
+    transaction_date     DATE           ,
+    transaction_time     TIME       ,
+    sender_user_id       VARCHAR (50)   ,
+    sender_name          VARCHAR (100)   ,
+    recipient_id         VARCHAR (50)   ,
+    recipient_name       VARCHAR (100)   ,
+    transaction_category VARCHAR (30)   ,
+    psp_name             VARCHAR (50)   ,
+    transaction_mode     VARCHAR (50)   ,
+    device_type          VARCHAR (50)   ,
+    amount               DECIMAL (18, 2),
+    transaction_status   VARCHAR (50)   ,
+    failure_reason       VARCHAR (100)   ,
+    response_time        INT            
+);
 
+INSERT INTO silver.transactions
 
-
-
-
-
-
-
+SELECT 
+t.transaction_id,
+t.transaction_date,
+t.transaction_time,
+t.sender_user_id,
+CONCAT(u.first_name,' ',u.last_name) AS sender_name,
+COALESCE(t.receiver_user_id,t.merchant_id) AS recipient_id,
+COALESCE(v.first_name + ' ' + v.last_name,TRIM(m.merchant_name)) AS recipient_name,
+CASE t.transaction_type
+WHEN 'P2P' THEN 'Person To Person'
+WHEN 'P2M' THEN 'Person To Merchant'
+END AS transaction_category,
+p.psp_name,
+t.transaction_mode,
+t.device_type,
+t.amount,
+t.transaction_status,
+f.failure_reason,
+t.response_time
+FROM bronze.transactions t
+LEFT JOIN bronze.users u
+ON u.user_id= t.sender_user_id
+LEFT JOIN bronze.users v
+ON v.user_id= t.receiver_user_id
+LEFT JOIN bronze.merchants m
+ON m.merchant_id = t.merchant_id
+LEFT JOIN bronze.psp p
+ON p.psp_id=t.psp_id
+LEFT JOIN bronze.failure_reasons f
+ON f.failure_reason_id=t.failure_reason_id
 
 /* ==========================================
    Note: Lookup tables (locations, banks,
