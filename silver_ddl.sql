@@ -58,3 +58,51 @@ SELECT psp_id,
        company,
        app_type
 FROM   bronze.psp;
+
+ -- ========================================= 
+
+CREATE TABLE silver.merchants (
+    merchant_id       VARCHAR (15) PRIMARY KEY,
+    merchant_name     VARCHAR (50),
+    merchant_category VARCHAR (50),
+    city              VARCHAR (50),
+    state             VARCHAR (50),
+    onboarding_date   DATE        ,
+    merchant_status   VARCHAR (50)
+);
+
+INSERT INTO silver.merchants
+
+SELECT 
+m.merchant_id,
+TRIM(m.merchant_name) AS merchant_name,
+CASE m.merchant_category
+WHEN 'GR' THEN 'Grocery'
+WHEN 'SM' THEN 'Supermarket'
+WHEN 'FB' THEN 'Food & Beverage'
+WHEN 'E' THEN 'Electronics'
+WHEN 'P' THEN 'Pharmacy'
+WHEN 'C' THEN 'Clothing'
+WHEN 'W' THEN 'Wholesale'
+WHEN 'ST' THEN 'Stationery'
+WHEN 'S' THEN 'Sports'
+WHEN 'HH' THEN 'Household'
+WHEN 'R' THEN 'Retail'
+WHEN 'F' THEN 'Fashion'
+WHEN 'AM' THEN 'Automobies'
+WHEN 'SE' THEN 'Services'
+WHEN 'JW' THEN 'Jwellery'
+WHEN 'B' THEN 'Books'
+WHEN 'T' THEN 'Travel'
+WHEN 'PC' THEN 'Personal care'
+END AS merchant_category,
+l.city AS city,
+l.state AS state,
+m.onboarding_date,
+m.merchant_status
+FROM bronze.merchants m
+LEFT JOIN bronze.locations l
+ON m.location_id=l.location_id
+
+ -- ========================================= 
+
