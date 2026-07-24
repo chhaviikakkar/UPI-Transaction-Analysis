@@ -53,5 +53,11 @@ FROM silver.merchants;
 Dimension: dim_banks
 ======================================================*/
 
-CREATE VIEW gold.dim_banks AS 
-SELECT * FROM silver.banks
+CREATE VIEW gold.dim_banks AS
+SELECT
+    ROW_NUMBER() OVER (ORDER BY bank_id) AS bank_key,
+    bank_id,
+    bank_name,
+    bank_type,
+    headquarters
+FROM silver.banks;
