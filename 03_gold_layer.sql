@@ -1,12 +1,11 @@
 /*======================================================
-Gold Layer - Dimension: dim_users
-========================================================
-
+Gold Layer
 Purpose:
 - The Gold layer is designed for analytics and reporting.
 - It follows a star schema where dimensions store descriptive
   business attributes and facts store measurable events.
-
+========================================================
+Dimension: dim_users
 Transformation Steps:
 1. Retrieve cleaned user data from the Silver layer.
 2. Generate a surrogate key (user_key) for each user.
@@ -34,3 +33,25 @@ SELECT ROW_NUMBER() OVER (ORDER BY user_id) AS user_key,
        kyc_status
 FROM   silver.users;
 
+/*======================================================
+Dimension: dim_merchants
+======================================================*/
+
+CREATE VIEW gold.dim_merchants AS
+SELECT
+    ROW_NUMBER() OVER (ORDER BY merchant_id) AS merchant_key,
+    merchant_id,
+    merchant_name,
+    merchant_category,
+    city,
+    state,
+    CAST(onboarding_date AS DATE) AS onboarding_date,
+    merchant_status
+FROM silver.merchants;
+
+/*======================================================
+Dimension: dim_banks
+======================================================*/
+
+CREATE VIEW gold.dim_banks AS 
+SELECT * FROM silver.banks
