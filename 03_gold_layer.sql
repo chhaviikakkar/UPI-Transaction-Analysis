@@ -60,3 +60,36 @@ SELECT
 FROM silver.transactions
 GROUP BY psp_name;
 
+/*======================================================
+Fact: fact_transactions
+======================================================*/
+
+SELECT ROW_NUMBER() OVER (ORDER BY transaction_id) AS transaction_key,
+       t.transaction_id,
+       t.transaction_date,
+       t.transaction_time,
+       u.user_key,
+       r.user_key AS recipient_key,
+       m.merchant_key,
+       t.transaction_category,
+       p.psp_key,
+       t.transaction_mode,
+       t.device_type,
+       t.amount,
+       t.transaction_status,
+       ISNULL(t.failure_reason, 'N/A') AS failure_reason,
+       t.response_time
+FROM   silver.transactions AS t
+       LEFT OUTER JOIN
+       gold.dim_users AS u
+       ON t.sender_user_id = u.user_id
+       LEFT OUTER JOIN
+       gold.dim_users AS r
+       ON r.user_id = t.recipient_id
+       LEFT OUTER JOIN
+       gold.dim_merchants AS m
+       ON m.merchant_id = t.recipient_id
+       LEFT OUTER JOIN
+       gold.dim_psp AS p
+       ON t.psp_name = p.psp_name;
+
