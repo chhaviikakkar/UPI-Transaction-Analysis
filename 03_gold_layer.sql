@@ -1,7 +1,6 @@
-/*
-=========================================================
+/*======================================================
 Gold Layer - Dimension: dim_users
-=========================================================
+========================================================
 
 Purpose:
 - The Gold layer is designed for analytics and reporting.
@@ -18,7 +17,7 @@ Transformation Steps:
    a business-friendly attribute for reporting.
 6. Expose the result as the dim_users view, ready for joining
    with the fact_transactions table.
-=========================================================
+=========================================================*/
 
 CREATE VIEW gold.dim_users
 AS
