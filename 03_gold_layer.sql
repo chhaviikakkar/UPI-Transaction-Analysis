@@ -50,14 +50,13 @@ SELECT
 FROM silver.merchants;
 
 /*======================================================
-Dimension: dim_banks
+Dimension: dim_psp
 ======================================================*/
 
-CREATE VIEW gold.dim_banks AS
+CREATE VIEW gold.dim_psp AS
 SELECT
-    ROW_NUMBER() OVER (ORDER BY bank_id) AS bank_key,
-    bank_id,
-    bank_name,
-    bank_type,
-    headquarters
-FROM silver.banks;
+    ROW_NUMBER() OVER (ORDER BY psp_name) AS psp_key,
+    psp_name
+FROM silver.transactions
+GROUP BY psp_name;
+
