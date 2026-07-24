@@ -184,6 +184,16 @@ FROM   bronze.bank_accounts AS ba
        LEFT OUTER JOIN
        bronze.banks AS b
        ON b.bank_id = ba.bank_id;
+-- ==========================================
+
+SELECT
+    bank_id,
+    TRIM(bank_name),
+    bank_type,
+    headquarters,
+    ifsc_prefix
+INTO silver.banks
+FROM bronze.banks;
 
 /* ==========================================
    Note: Lookup tables (locations, banks and
