@@ -64,6 +64,7 @@ GROUP BY psp_name;
 Fact: fact_transactions
 ======================================================*/
 
+CREATE VIEW gold.fact_transactions AS
 SELECT ROW_NUMBER() OVER (ORDER BY transaction_id) AS transaction_key,
        t.transaction_id,
        t.transaction_date,
