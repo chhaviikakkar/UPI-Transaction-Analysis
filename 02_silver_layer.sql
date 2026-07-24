@@ -188,7 +188,7 @@ FROM   bronze.bank_accounts AS ba
 
 SELECT
     bank_id,
-    TRIM(bank_name),
+    bank_name,
     bank_type,
     headquarters,
     ifsc_prefix
