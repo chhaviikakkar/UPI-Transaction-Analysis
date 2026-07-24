@@ -157,13 +157,41 @@ ON p.psp_id=t.psp_id
 LEFT JOIN bronze.failure_reasons f
 ON f.failure_reason_id=t.failure_reason_id
 
+-- ========================================= 
+   
+CREATE TABLE silver.bank_accounts (
+    account_id            VARCHAR (50)    PRIMARY KEY,
+    user_id               VARCHAR (50)   ,
+    bank_id               VARCHAR (50)   ,
+    bank_name             VARCHAR (100)  ,
+    masked_account_number VARCHAR (50)   ,
+    account_type          VARCHAR (50)   ,
+    current_balance       DECIMAL (18, 2),
+    account_status        VARCHAR (20)   ,
+    opening_date          DATE           
+);
+INSERT INTO silver.bank_accounts
+SELECT ba.account_id,
+       ba.user_id,
+       ba.bank_id,
+       b.bank_name,
+       CONCAT('XXXXXX', RIGHT(ba.account_number, 4)) AS masked_account_number,
+       ba.account_type,
+       ba.balance AS current_balance,
+       UPPER(ba.account_status) AS account_status,
+       CAST (ba.opening_date AS DATE) AS opening_date
+FROM   bronze.bank_accounts AS ba
+       LEFT OUTER JOIN
+       bronze.banks AS b
+       ON b.bank_id = ba.bank_id;
+
 /* ==========================================
-   Note: Lookup tables (locations, banks,
-   bank_accounts, and failure_reasons) were 
-   not promoted to the silver layer because they
-   already contained clean, standardized 
-   reference data and required no transformations.
-   The Silver layer was created only for datasets  
-   that required data quality improvements, 
-   standardization, or business rule application
+   Note: Lookup tables (locations, banks and
+   failure_reasons) were not promoted to the 
+   silver layer because they already contained
+   clean, standardized reference data and 
+   required no transformations. The Silver 
+   layer was created only for datasets that
+   required data quality improvements, 
+   standardization or business rule application
  ========================================= */
