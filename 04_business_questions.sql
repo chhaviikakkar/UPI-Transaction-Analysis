@@ -126,3 +126,16 @@ LEFT JOIN gold.fact_transactions t
 ON m.merchant_key=t.merchant_key)t
 GROUP BY merchant_category
 ORDER BY revenue DESC
+/*========================================================
+Q8. Which device type has the highest failure rate?
+=========================================================*/
+SELECT *,
+ROUND(CAST(no_failed_transactions AS FLOAT)/total_failed * 100,2) failure_rate
+FROM(
+SELECT 
+device_type,
+COUNT(*) no_failed_transactions,
+SUM(COUNT(*)) OVER() total_failed
+FROM gold.fact_transactions
+WHERE transaction_status = 'Failed'
+GROUP BY device_type)t
