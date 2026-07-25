@@ -108,3 +108,21 @@ LEFT JOIN gold.dim_users u
 ON t.user_key = u.user_key)t
 GROUP BY age_group
 ORDER BY total_transactions DESC
+/*========================================================
+Q6. Which merchant categories generate the highest revenue?
+=========================================================*/ 
+SELECT 
+merchant_category,
+SUM(amount) AS revenue
+FROM(
+SELECT 
+m.merchant_key,
+m.merchant_name,
+m.merchant_category,
+t.transaction_category,
+t.amount 
+FROM gold.dim_merchants m
+LEFT JOIN gold.fact_transactions t
+ON m.merchant_key=t.merchant_key)t
+GROUP BY merchant_category
+ORDER BY revenue DESC
