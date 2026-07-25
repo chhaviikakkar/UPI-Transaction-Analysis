@@ -177,3 +177,14 @@ COUNT(*) AS transaction_volume,
 LAG(COUNT(*)) OVER(ORDER BY YEAR(transaction_date), MONTH(transaction_date)) AS prev_month_volume
 FROM gold.fact_transactions
 GROUP BY YEAR(transaction_date),MONTH(transaction_date),DATENAME(MONTH,transaction_date))t
+/*========================================================
+Q12. Which cities have the highest merchant transaction value?
+=========================================================*/
+SELECT
+m.city,
+SUM(t.amount) AS transaction_value
+FROM gold.fact_transactions t
+INNER JOIN gold.dim_merchants m
+ON m.merchant_key=t.merchant_key
+GROUP BY m.city
+ORDER BY transaction_value DESC
