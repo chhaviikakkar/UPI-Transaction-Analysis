@@ -139,3 +139,15 @@ SUM(COUNT(*)) OVER() total_failed
 FROM gold.fact_transactions
 WHERE transaction_status = 'Failed'
 GROUP BY device_type)t
+/*========================================================
+Q9. Which PSP is most popular for P2M transactions?
+=========================================================*/
+SELECT TOP 1
+p.psp_name,
+COUNT(transaction_key) total
+FROM gold.dim_psp p
+LEFT JOIN gold.fact_transactions t
+ON p.psp_key = t.psp_key
+WHERE transaction_category= 'Person To Merchant'
+GROUP BY psp_name
+ORDER BY total DESC
