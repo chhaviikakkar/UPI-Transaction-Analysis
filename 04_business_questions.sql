@@ -163,3 +163,17 @@ LEFT JOIN gold.dim_users u
 ON u.user_key=t.user_key
 GROUP BY t.user_key,u.name
 ORDER BY transaction_value DESC
+/*========================================================
+Q11. How has transaction volume changed month-over-month ?
+=========================================================*/
+SELECT *,
+transaction_volume - prev_month_volume AS MoM_analysis
+FROM(
+SELECT 
+YEAR(transaction_date) AS years,
+MONTH(transaction_date) AS months,
+DATENAME(MONTH,transaction_date) AS month_name,
+COUNT(*) AS transaction_volume,
+LAG(COUNT(*)) OVER(ORDER BY YEAR(transaction_date), MONTH(transaction_date)) AS prev_month_volume
+FROM gold.fact_transactions
+GROUP BY YEAR(transaction_date),MONTH(transaction_date),DATENAME(MONTH,transaction_date))t
