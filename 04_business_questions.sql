@@ -83,4 +83,28 @@ AVG(response_time) avg_response
 FROM cte_psp
 GROUP BY psp_name
 ORDER BY avg_response ASC
-
+/*========================================================
+Q6. Which age group performs the most transactions?
+=========================================================*/ 
+SELECT 
+age_group,
+COUNT(*) total_transactions
+FROM(
+SELECT 
+t.transaction_key,
+t.transaction_id,
+t.user_key,
+u.name,
+CASE
+WHEN u.age > 18 AND u.age <= 25 THEN 'Young Adults'
+WHEN u.age >= 25 AND u.age <= 39 THEN 'Adults'
+WHEN u.age >= 40 AND u.age <=59 THEN 'Middle-Aged Adults'
+ELSE 'Senior Citizens' END AS age_group,
+t.recipient_key,
+t.merchant_key,
+t.transaction_category
+FROM gold.fact_transactions t
+LEFT JOIN gold.dim_users u
+ON t.user_key = u.user_key)t
+GROUP BY age_group
+ORDER BY total_transactions DESC
