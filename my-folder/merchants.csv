@@ -1,0 +1,51 @@
+﻿merchant_id,merchant_name,merchant_category,location_id,onboarding_date,merchant_status
+M001,Sharma General Store,GR,L010,8/23/2025,Active
+M002,Fresh Mart,GR,L005,4/29/2020,Active
+M003,   Reliance Smart,SM,L026,8/29/2024,Active
+M004,Cafe Coffee Corner,FB,L042,8/18/2020,Active
+M005,Tech World E,E,L002,8/2/2018,Active
+M006,Krishna Medical Store,P,L004,7/11/2020,Active
+M007,Daily Needs Store  ,GR,L042,1/30/2021,Active
+M008,Fashion Point,C,L030,4/3/2022,Active
+M009,  Royal Footwear,C,L050,3/20/2018,Active
+M010,City Restaurant,FB,L005,3/26/2022,Active
+M011,ABC Mobile Shop  ,E,L043,8/11/2023,Active
+M012,Green Pharmacy,P,L039,8/2/2019,Active
+M013,Gupta Traders,W,L004,12/20/2018,Active
+M014,Kumar Stationery,ST,L042,6/7/2021,Active
+M015,Digital Hub,E,L017,4/12/2019,Active
+M016,Super Mart,GR,L003,2/29/2020,Active
+M017,Health Plus ,P,L043,7/30/2019,Active
+M018,Food Corner,FB,L019,5/2/2025,Active
+M019,Modern C,C,L027,2/28/2017,Active
+M020,Smart E,E,L049,1/29/2021,Active
+M021,Lakshmi Stores,GR,L037,11/10/2023,Active
+M022,Kerala Medicals,P,L003,6/30/2022,Active
+M023,Royal Sweets,FB,L042,4/9/2021,Active
+M024,City Bakery,FB,L044,4/18/2023,Active
+M025,Home Needs,HH,L029,2/2/2019,Active
+M026,Style Studio,C,L033,5/11/2023,Active
+M027,Quick Electro,E,L006,10/28/2025,Active
+M028,Campus Cafe,FB,L015,3/21/2025,Active
+M029,Book World,B,L049,7/26/2022,Active
+M030,    Daily Bazaar,GR,L026,3/18/2019,Inactive
+M031,Metro Pharmacy,P,L001,3/20/2021,Active
+M032,Fashion House  ,C,L013,12/12/2022,Active
+M033,Food Junction,FB,L050,11/23/2019,Active
+M034,Mobile Zone,E,L028,1/16/2017,Active
+M035,Royal Jewellers,JW,L012,12/17/2020,Inactive
+M036,Travel Point ,T,L044,5/28/2021,Active
+M037,Auto Services,AM,L035,8/4/2021,Active
+M038,Fashion Hub,F,L004,9/5/2025,Active
+M039,Salon Studio,PC,L017,4/11/2018,Active
+M040,Online Services,SE,L044,10/20/2019,Active
+M041,Green Vegetables,GR,L011,11/19/2020,Active
+M042,Local Mart,GR,L026,11/23/2023,Active
+M043,Student Corner,ST,L001,12/4/2022,Active
+M044,E Plaza,E,L037,8/29/2021,Active
+M045,Health Care,P,L046,2/19/2017,Active
+M046,Coffee House,FB,L013,1/12/2023,Active
+M047,Fashion Avenue,C,L009,7/24/2022,Active
+M048,Gift Gallery,R,L001,7/2/2017,Active
+M049,Home Decor,HH,L040,6/9/2024,Active
+M050,Sports World,S,L028,5/17/2019,Active

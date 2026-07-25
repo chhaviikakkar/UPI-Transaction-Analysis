@@ -1,0 +1,31 @@
+﻿bank_id,bank_name,bank_type,headquarters,ifsc_prefix
+B001,State Bank of India,Public Sector,Mumbai,SBIN
+B002,HDFC Bank,Private Sector,Mumbai,HDFC
+B003,ICICI Bank,Private Sector,Mumbai,ICIC
+B004,Axis Bank,Private Sector,Mumbai,UTIB
+B005,Punjab National Bank,Public Sector,New Delhi,PUNB
+B006,Bank of Baroda,Public Sector,Vadodara,BARB
+B007,Canara Bank,Public Sector,Bengaluru,CNRB
+B008,Union Bank of India,Public Sector,Mumbai,UBIN
+B009,Bank of India,Public Sector,Mumbai,BKID
+B010,Indian Bank,Public Sector,Chennai,IDIB
+B011,Kotak Mahindra Bank,Private Sector,Mumbai,KKBK
+B012,IndusInd Bank,Private Sector,Mumbai,INDB
+B013,Yes Bank,Private Sector,Mumbai,YESB
+B014,IDFC First Bank,Private Sector,Mumbai,IDFB
+B015,Federal Bank,Private Sector,Kochi,FDRL
+B016,RBL Bank,Private Sector,Mumbai,RATN
+B017,South Indian Bank,Private Sector,Thrissur,SIBL
+B018,Bandhan Bank,Private Sector,Kolkata,BDBL
+B019,AU Small Finance Bank,Small Finance Bank,Jaipur,AUBL
+B020,Equitas Small Finance Bank,Small Finance Bank,Chennai,ESFB
+B021,UCO Bank,Public Sector,Kolkata,UCBA
+B022,Indian Overseas Bank,Public Sector,Chennai,IOBA
+B023,Bank of Maharashtra,Public Sector,Pune,MAHB
+B024,Central Bank of India,Public Sector,Mumbai,CBIN
+B025,Punjab & Sind Bank,Public Sector,New Delhi,PSIB
+B026,Karnataka Bank,Private Sector,Mangaluru,KARB
+B027,Jammu & Kashmir Bank,Private Sector,Srinagar,JAKA
+B028,Dhanlaxmi Bank,Private Sector,Thrissur,DLXB
+B029,City Union Bank,Private Sector,Kumbakonam,CIUB
+B030,Tamilnad Mercantile Bank,Private Sector,Thoothukudi,TMBL

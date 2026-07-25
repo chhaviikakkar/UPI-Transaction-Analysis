@@ -1,0 +1,11 @@
+﻿psp_id,psp_name,company,app_type,launch_year,active_status
+P001,PhonePe,PhonePe,Third Party App,2016,Active
+P002,Google Pay,Google,Third Party App,2017,Active
+P003,Paytm,One97 Communications,Third Party App,2016,Active
+P004,BHIM,NPCI,Government-backed App,2016,Active
+P005,Amazon Pay,Amazon,Third Party App,2019,Active
+P006,WhatsApp Pay,Meta,Third Party App,2020,Active
+P007,CRED Pay,CRED,Third Party App,2020,Active
+P008,Mobikwik,MobiKwik,Third Party App,2016,Active
+P009,Airtel Payments Bank,Airtel,Bank-owned App,2016,Active
+P010,Samsung Pay UPI,Samsung,Third Party App,2017,Active

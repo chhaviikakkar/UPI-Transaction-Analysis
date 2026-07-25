@@ -1,0 +1,11 @@
+﻿failure_reason_id,failure_reason,category,severity
+F001,Insufficient Balance,User Issue,Medium
+F002,Incorrect UPI PIN,User Issue,Medium
+F003,Bank Server Down,Bank Issue,High
+F004,Bank Timeout,Bank Issue,High
+F005,Network Error,Technical Issue,Medium
+F006,UPI Service Unavailable,System Issue,High
+F007,Daily Transaction Limit Exceeded,User Issue,Medium
+F008,Invalid UPI ID,User Issue,Low
+F009,Account Blocked,Bank Issue,High
+F010,Transaction Declined by Bank,Bank Issue,High

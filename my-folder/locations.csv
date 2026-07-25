@@ -1,0 +1,51 @@
+﻿location_id,city,state
+L001,Mumbai,Maharashtra
+L002,Pune,Maharashtra
+L003,Nagpur,Maharashtra
+L004,Nashik,Maharashtra
+L005,Thane,Maharashtra
+L006,Bengaluru,Karnataka
+L007,Mysuru,Karnataka
+L008,Mangaluru,Karnataka
+L009,Hyderabad,Telangana
+L010,Warangal,Telangana
+L011,Chennai,Tamil Nadu
+L012,Coimbatore,Tamil Nadu
+L013,Madurai,Tamil Nadu
+L014,Kolkata,West Bengal
+L015,Siliguri,West Bengal
+L016,Ahmedabad,Gujarat
+L017,Surat,Gujarat
+L018,Vadodara,Gujarat
+L019,Rajkot,Gujarat
+L020,Jaipur,Rajasthan
+L021,Jodhpur,Rajasthan
+L022,Udaipur,Rajasthan
+L023,Delhi,Delhi
+L024,Noida,Uttar Pradesh
+L025,Lucknow,Uttar Pradesh
+L026,Kanpur,Uttar Pradesh
+L027,Agra,Uttar Pradesh
+L028,Varanasi,Uttar Pradesh
+L029,Indore,Madhya Pradesh
+L030,Bhopal,Madhya Pradesh
+L031,Gwalior,Madhya Pradesh
+L032,Patna,Bihar
+L033,Gaya,Bihar
+L034,Chandigarh,Chandigarh
+L035,Ludhiana,Punjab
+L036,Amritsar,Punjab
+L037,Gurugram,Haryana
+L038,Faridabad,Haryana
+L039,Dehradun,Uttarakhand
+L040,Haridwar,Uttarakhand
+L041,Ranchi,Jharkhand
+L042,Jamshedpur,Jharkhand
+L043,Raipur,Chhattisgarh
+L044,Bhubaneswar,Odisha
+L045,Kochi,Kerala
+L046,Thiruvananthapuram,Kerala
+L047,Goa,Goa
+L048,Guwahati,Assam
+L049,Vijayawada,Andhra Pradesh
+L050,Visakhapatnam,Andhra Pradesh
