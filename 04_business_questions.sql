@@ -109,7 +109,7 @@ ON t.user_key = u.user_key)t
 GROUP BY age_group
 ORDER BY total_transactions DESC
 /*========================================================
-Q6. Which merchant categories generate the highest revenue?
+Q7. Which merchant categories generate the highest revenue?
 =========================================================*/ 
 SELECT 
 merchant_category,
