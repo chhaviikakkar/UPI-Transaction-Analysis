@@ -151,3 +151,15 @@ ON p.psp_key = t.psp_key
 WHERE transaction_category= 'Person To Merchant'
 GROUP BY psp_name
 ORDER BY total DESC
+/*========================================================
+Q10. Who are the top 10 users by transaction value?
+=========================================================*/
+SELECT TOP 10
+t.user_key,
+u.name,
+SUM(t.amount) transaction_value
+FROM gold.fact_transactions t
+LEFT JOIN gold.dim_users u
+ON u.user_key=t.user_key
+GROUP BY t.user_key,u.name
+ORDER BY transaction_value DESC
