@@ -10,7 +10,7 @@ FROM   (SELECT   transaction_status,
                  COUNT(*) AS number_of_transactions,
                  SUM(COUNT(*)) OVER () AS total_transactions
         FROM     gold.fact_transactions
-        GROUP BY transaction_status) AS t;
+        GROUP BY transaction_status) AS t
 /*========================================================
 Q2. At what hours do users make the most transactions?
 =========================================================*/
@@ -188,3 +188,18 @@ INNER JOIN gold.dim_merchants m
 ON m.merchant_key=t.merchant_key
 GROUP BY m.city
 ORDER BY transaction_value DESC
+/*========================================================
+Q13. Which PSPs have higher transaction failure rates?
+=========================================================*/
+SELECT
+         p.psp_name,
+         COUNT(*) AS total_transactions,
+         SUM(CASE WHEN t.transaction_status = 'Failed' THEN 1 ELSE 0 END) AS failed_transactions,
+         ROUND(CAST (SUM(CASE WHEN t.transaction_status = 'Failed' THEN 1 ELSE 0 END) AS FLOAT) * 100 / COUNT(*), 2) AS failure_rate
+FROM     gold.fact_transactions AS t
+         LEFT OUTER JOIN
+         gold.dim_psp AS p
+         ON p.psp_key = t.psp_key
+GROUP BY psp_name
+ORDER BY failure_rate DESC
+
