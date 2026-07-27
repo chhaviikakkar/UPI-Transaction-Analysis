@@ -13,7 +13,6 @@ The project aims to answer key questions related to UPI operations:
 - What is the overall transaction success rate?
 - Which PSPs have higher transaction failure rates?
 - What are the major reasons behind failed payments?
-- Which banks demonstrate better transaction reliability?
 - How do transaction patterns change across time and locations?
 - What are the spending patterns of users and merchants?
 - How does transaction processing time affect payment performance?
