@@ -202,4 +202,31 @@ FROM     gold.fact_transactions AS t
          ON p.psp_key = t.psp_key
 GROUP BY psp_name
 ORDER BY failure_rate DESC
-
+/*========================================================
+Q14. Rank merchants by transaction value.
+=========================================================*/
+SELECT
+m.merchant_name,
+SUM(t.amount) AS transaction_value,
+RANK() OVER (ORDER BY SUM(t.amount) DESC) AS ranking
+FROM gold.fact_transactions t
+INNER JOIN gold.dim_merchants m
+ON m.merchant_key=t.merchant_key
+GROUP BY m.merchant_name
+ORDER BY transaction_value DESC
+/*========================================================
+Q15. How many customers belong to each value segment?
+=========================================================*/
+SELECT 
+segment_value AS segments,
+SUM(t.amount) AS total_value
+FROM(
+SELECT 
+t.user_key,
+t.amount,
+CASE WHEN t.amount >= 10000 THEN 'High Value'
+WHEN t.amount <10000 AND t.amount>=1000 THEN 'Medium Value'
+ELSE 'Low Value' END AS segment_value
+FROM gold.fact_transactions t )t
+GROUP BY segment_value
+ORDER BY total_value DESC
